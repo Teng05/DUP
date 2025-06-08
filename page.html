@@ -3,7 +3,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>
-   Coffee Menu with Add Item Functionality
+   Coffee Menu with Category Tabs and Add Item Functionality
   </title>
   <script src="https://cdn.tailwindcss.com">
   </script>
@@ -80,28 +80,28 @@
     </form>
    </header>
    <!-- Category buttons -->
-   <nav aria-label="Coffee categories" class="flex flex-wrap gap-3 mb-3 max-w-xl">
-    <button aria-pressed="true" class="flex items-center gap-2 bg-[#4B2E0E] text-white rounded-full py-2 px-5 text-sm font-semibold shadow-md" type="button">
+   <nav aria-label="Coffee categories" class="flex flex-wrap gap-3 mb-3 max-w-xl" id="category-nav">
+    <button aria-pressed="true" class="flex items-center gap-2 bg-[#4B2E0E] text-white rounded-full py-2 px-5 text-sm font-semibold shadow-md category-btn" data-category="coffee" type="button">
      <i class="fas fa-coffee">
      </i>
      Coffee
     </button>
-    <button aria-pressed="false" class="flex items-center gap-2 bg-white border border-gray-300 rounded-full py-2 px-5 text-sm text-gray-700" type="button">
+    <button aria-pressed="false" class="flex items-center gap-2 bg-white border border-gray-300 rounded-full py-2 px-5 text-sm text-gray-700 category-btn" data-category="non-coffee" type="button">
      <i class="fas fa-coffee" style="opacity: 0.3;">
      </i>
      Non Coffee
     </button>
-    <button aria-pressed="false" class="flex items-center gap-2 bg-white border border-gray-300 rounded-full py-2 px-5 text-sm text-gray-700" type="button">
+    <button aria-pressed="false" class="flex items-center gap-2 bg-white border border-gray-300 rounded-full py-2 px-5 text-sm text-gray-700 category-btn" data-category="matcha" type="button">
      <i class="fas fa-leaf" style="opacity: 0.3;">
      </i>
      Matcha
     </button>
-    <button aria-pressed="false" class="flex items-center gap-2 bg-white border border-gray-300 rounded-full py-2 px-5 text-sm text-gray-700" type="button">
+    <button aria-pressed="false" class="flex items-center gap-2 bg-white border border-gray-300 rounded-full py-2 px-5 text-sm text-gray-700 category-btn" data-category="frappe" type="button">
      <i class="fas fa-glass-martini-alt" style="opacity: 0.3;">
      </i>
      Frappe
     </button>
-    <button aria-pressed="false" class="flex items-center gap-2 bg-white border border-gray-300 rounded-full py-2 px-5 text-sm text-gray-700" type="button">
+    <button aria-pressed="false" class="flex items-center gap-2 bg-white border border-gray-300 rounded-full py-2 px-5 text-sm text-gray-700 category-btn" data-category="signatures" type="button">
      <i class="fas fa-coffee" style="opacity: 0.3;">
      </i>
      Signatures
@@ -154,6 +154,7 @@
    </div>
   </aside>
   <script>
+   // Menu data with categories
    const menuData = [
     {
       id: "hot-americano",
@@ -161,7 +162,8 @@
       description: "Description about Hot Americano Description about Hot Americano Description about Hot Americano",
       price: 90.0,
       img: "https://storage.googleapis.com/a1aa/image/fb5c6a68-d24e-4c05-4eb2-66ce9ff64f90.jpg",
-      alt: "White ceramic cup filled with hot Americano coffee on white background"
+      alt: "White ceramic cup filled with hot Americano coffee on white background",
+      category: "coffee"
     },
     {
       id: "caramel-macchiato",
@@ -169,7 +171,8 @@
       description: "Description about Caramel Macchiato Description about Caramel Macchiato Description about Caramel Macchiato",
       price: 125.0,
       img: "https://storage.googleapis.com/a1aa/image/27e306f9-f3d7-41d1-181f-3a9a810f8825.jpg",
-      alt: "Glass cup filled with caramel macchiato coffee with foam on top on white background"
+      alt: "Glass cup filled with caramel macchiato coffee with foam on top on white background",
+      category: "coffee"
     },
     {
       id: "spanish-latte",
@@ -177,7 +180,8 @@
       description: "Description about Spanish Latte Description about Spanish Latte Description about Spanish Latte",
       price: 100.0,
       img: "https://storage.googleapis.com/a1aa/image/2200c2e1-8965-4175-267f-79072983b01f.jpg",
-      alt: "Glass cup filled with Spanish latte coffee with foam on top on white background"
+      alt: "Glass cup filled with Spanish latte coffee with foam on top on white background",
+      category: "coffee"
     },
     {
       id: "white-mocha",
@@ -185,7 +189,8 @@
       description: "Description about Hot Americano Description about Hot Americano Description about Hot Americano",
       price: 90.0,
       img: "https://storage.googleapis.com/a1aa/image/c5d0393f-84a8-42bc-3451-8d0548bcb28a.jpg",
-      alt: "Glass cup filled with white mocha coffee with whipped cream on top on white background"
+      alt: "Glass cup filled with white mocha coffee with whipped cream on top on white background",
+      category: "non-coffee"
     },
     {
       id: "caramel-macchiato-2",
@@ -193,7 +198,8 @@
       description: "Description about Caramel Macchiato Description about Caramel Macchiato Description about Caramel Macchiato",
       price: 125.0,
       img: "https://storage.googleapis.com/a1aa/image/dc4a018e-cae9-4b7e-2a2c-7512bab59c5b.jpg",
-      alt: "White ceramic cup filled with caramel macchiato coffee on white background"
+      alt: "White ceramic cup filled with caramel macchiato coffee on white background",
+      category: "coffee"
     },
     {
       id: "spanish-latte-2",
@@ -201,7 +207,8 @@
       description: "Description about Spanish Latte Description about Spanish Latte Description about Spanish Latte",
       price: 100.0,
       img: "https://storage.googleapis.com/a1aa/image/2200c2e1-8965-4175-267f-79072983b01f.jpg",
-      alt: "Glass cup filled with Spanish latte coffee with foam on top on white background"
+      alt: "Glass cup filled with Spanish latte coffee with foam on top on white background",
+      category: "coffee"
     },
     {
       id: "hot-americano-2",
@@ -209,7 +216,8 @@
       description: "Description about Hot Americano Description about Hot Americano Description about Hot Americano",
       price: 90.0,
       img: "https://storage.googleapis.com/a1aa/image/fb5c6a68-d24e-4c05-4eb2-66ce9ff64f90.jpg",
-      alt: "White ceramic cup filled with hot Americano coffee on white background"
+      alt: "White ceramic cup filled with hot Americano coffee on white background",
+      category: "coffee"
     },
     {
       id: "caramel-macchiato-3",
@@ -217,7 +225,8 @@
       description: "Description about Caramel Macchiato Description about Caramel Macchiato Description about Caramel Macchiato",
       price: 125.0,
       img: "https://storage.googleapis.com/a1aa/image/27e306f9-f3d7-41d1-181f-3a9a810f8825.jpg",
-      alt: "Glass cup filled with caramel macchiato coffee with foam on top on white background"
+      alt: "Glass cup filled with caramel macchiato coffee with foam on top on white background",
+      category: "coffee"
     },
     {
       id: "spanish-latte-3",
@@ -225,7 +234,27 @@
       description: "Description about Spanish Latte Description about Spanish Latte Description about Spanish Latte",
       price: 100.0,
       img: "https://storage.googleapis.com/a1aa/image/2200c2e1-8965-4175-267f-79072983b01f.jpg",
-      alt: "Glass cup filled with Spanish latte coffee with foam on top on white background"
+      alt: "Glass cup filled with Spanish latte coffee with foam on top on white background",
+      category: "coffee"
+    },
+    // Add some non-coffee items for demonstration
+    {
+      id: "green-tea",
+      name: "Green Tea",
+      description: "Refreshing green tea with natural flavors",
+      price: 80.0,
+      img: "https://placehold.co/80x80/png?text=Green+Tea",
+      alt: "Cup of green tea on white background",
+      category: "non-coffee"
+    },
+    {
+      id: "hot-chocolate",
+      name: "Hot Chocolate",
+      description: "Rich and creamy hot chocolate",
+      price: 95.0,
+      img: "https://placehold.co/80x80/png?text=Hot+Chocolate",
+      alt: "Cup of hot chocolate with whipped cream on white background",
+      category: "non-coffee"
     }
    ];
 
@@ -234,14 +263,17 @@
    const orderTotalEl = document.getElementById("order-total");
    const confirmBtn = document.getElementById("confirm-btn");
    const cancelBtn = document.getElementById("cancel-btn");
+   const categoryButtons = document.querySelectorAll(".category-btn");
 
    // Order state: { id: { ...item, quantity } }
    let order = {};
+   let currentCategory = "coffee";
 
-   // Render menu items
+   // Render menu items filtered by category
    function renderMenu() {
      menuContainer.innerHTML = "";
-     menuData.forEach(item => {
+     const filteredItems = menuData.filter(item => item.category === currentCategory);
+     filteredItems.forEach(item => {
        const isInOrder = order[item.id] !== undefined;
        const quantity = isInOrder ? order[item.id].quantity : 0;
 
@@ -386,6 +418,31 @@
      order = {};
      renderMenu();
      renderOrder();
+   });
+
+   // Category button click handler
+   categoryButtons.forEach(btn => {
+     btn.addEventListener("click", () => {
+       const selectedCategory = btn.getAttribute("data-category");
+       if (selectedCategory === currentCategory) return;
+
+       currentCategory = selectedCategory;
+
+       // Update aria-pressed and styles
+       categoryButtons.forEach(b => {
+         if (b === btn) {
+           b.setAttribute("aria-pressed", "true");
+           b.classList.add("bg-[#4B2E0E]", "text-white", "shadow-md");
+           b.classList.remove("bg-white", "border", "border-gray-300", "text-gray-700");
+         } else {
+           b.setAttribute("aria-pressed", "false");
+           b.classList.remove("bg-[#4B2E0E]", "text-white", "shadow-md");
+           b.classList.add("bg-white", "border", "border-gray-300", "text-gray-700");
+         }
+       });
+
+       renderMenu();
+     });
    });
 
    // Initial render
